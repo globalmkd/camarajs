@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Api Stream</title>
+    <script>
+        function iniciar() {
+            navigator.webkitGetUserMedia({video: true}, exito, mostrarerror);
+        }
+
+        function exito(stream){
+            var video = document.getElementById("medio");
+            video.setAttribute('src', URL.createObjectURL(stream));
+            video.play();
+        }
+
+        function mostrarerror(e){
+            console.log(e.code);
+
+        }
+
+        addEventListener('load', iniciar);
+    </script>
+    
+</head>
+<body>
+    <section>
+<video id="medio"></video>
+
+    </section>
+</body>
+</html>
